@@ -38,18 +38,18 @@ class Client:
         return self.name
    
     def get_charge(self, rental: Rental) -> float:
-    amount = 0
-    if rental.book.price_code == Book.REGULAR:
-        amount += 2
-        if rental.days_rented > 2:
-            amount += (rental.days_rented - 2) * 1.5
-    elif rental.book.price_code == Book.NEW_RELEASE:
-        amount += rental.days_rented * 3
-    elif rental.book.price_code == Book.CHILDREN:
-        amount += 1.5
-        if rental.days_rented > 3:
-            amount += (rental.days_rented - 3) * 1.5
-    return amount
+        amount = 0
+        if rental.book.price_code == Book.REGULAR:
+            amount += 2
+            if rental.days_rented > 2:
+                amount += (rental.days_rented - 2) * 1.5
+        elif rental.book.price_code == Book.NEW_RELEASE:
+            amount += rental.days_rented * 3
+        elif rental.book.price_code == Book.CHILDREN:
+            amount += 1.5
+            if rental.days_rented > 3:
+                amount += (rental.days_rented - 3) * 1.5
+        return amount
 
     def statement(self) -> str:
 
